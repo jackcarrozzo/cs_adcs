@@ -1,0 +1,108 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2012 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 32-bit
+# Version 12.1 Build 243 01/31/2013 Service Pack 1 SJ Web Edition
+# Date created = 13:38:03  March 16, 2013
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		modulator_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C8Q208C8
+set_global_assignment -name TOP_LEVEL_ENTITY cs_adcs 
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION "12.1 SP1"
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "13:38:03  MARCH 16, 2013"
+set_global_assignment -name LAST_QUARTUS_VERSION "12.1 SP1"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (Verilog)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT "VERILOG HDL" -section_id eda_simulation
+set_global_assignment -name VERILOG_FILE ../src/cs_adcs.v
+set_global_assignment -name VERILOG_FILE ../src/ft245r_fifo.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+
+set_location_assignment PIN_23 -to clk
+
+set_location_assignment PIN_165 -to dacval[0]
+set_location_assignment PIN_163 -to dacval[1]
+set_location_assignment PIN_161 -to dacval[2]
+set_location_assignment PIN_152 -to dacval[3]
+set_location_assignment PIN_150 -to dacval[4]
+set_location_assignment PIN_147 -to dacval[5]
+set_location_assignment PIN_145 -to dacval[6]
+set_location_assignment PIN_143 -to dacval[7]
+set_location_assignment PIN_141 -to dacval[8]
+set_location_assignment PIN_138 -to dacval[9]
+
+set_location_assignment PIN_13 -to locked
+#set_location_assignment PIN_11 -to reset_
+#set_location_assignment PIN_15 -to loclk
+set_location_assignment PIN_15 -to loclk
+set_location_assignment PIN_135 -to synthclk
+#set_location_assignment PIN_44 -to synthclk
+
+set_location_assignment PIN_169 -to usb_bus[0]
+set_location_assignment PIN_171 -to usb_bus[1]
+set_location_assignment PIN_175 -to usb_bus[2]
+set_location_assignment PIN_179 -to usb_bus[3]
+set_location_assignment PIN_181 -to usb_bus[4]
+set_location_assignment PIN_185 -to usb_bus[5]
+set_location_assignment PIN_188 -to usb_bus[6]
+set_location_assignment PIN_191 -to usb_bus[7]
+set_location_assignment PIN_193 -to usb_rd_
+set_location_assignment PIN_197 -to usb_wr
+set_location_assignment PIN_199 -to usb_txe_
+set_location_assignment PIN_201 -to usb_rxf_
+
+set_location_assignment PIN_34 -to status[0]
+set_location_assignment PIN_37 -to status[1]
+set_location_assignment PIN_35 -to status[2]
+set_location_assignment PIN_40 -to status[3]
+set_location_assignment PIN_43 -to status[4]
+set_location_assignment PIN_39 -to status[5]
+set_location_assignment PIN_44 -to status[6]
+set_location_assignment PIN_41 -to status[7]
+
+
+
+
+
+
+
+
+set_global_assignment -name QIP_FILE thepll.qip
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
