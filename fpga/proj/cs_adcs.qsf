@@ -71,36 +71,22 @@ set_location_assignment PIN_138 -to adc_ovfl_
 set_location_assignment PIN_135 -to adc_m0
 set_location_assignment PIN_133 -to adc_m1
 
-#set_location_assignment PIN_165 -to dacval[0]
-#set_location_assignment PIN_163 -to dacval[1]
-#set_location_assignment PIN_161 -to dacval[2]
-#set_location_assignment PIN_152 -to dacval[3]
-#set_location_assignment PIN_150 -to dacval[4]
-#set_location_assignment PIN_147 -to dacval[5]
-#set_location_assignment PIN_145 -to dacval[6]
-#set_location_assignment PIN_143 -to dacval[7]
-#set_location_assignment PIN_141 -to dacval[8]
-#set_location_assignment PIN_138 -to dacval[9]
-
-set_location_assignment PIN_13 -to pll_locked
+set_location_assignment PIN_199 -to pll_locked
 #set_location_assignment PIN_11 -to reset_
-set_location_assignment PIN_15 -to altclk
-#set_location_assignment PIN_15 -to loclk
-#set_location_assignment PIN_135 -to synthclk
-#set_location_assignment PIN_44 -to synthclk
+set_location_assignment PIN_201 -to altclk
 
-set_location_assignment PIN_169 -to usb_bus[0]
-set_location_assignment PIN_171 -to usb_bus[1]
-set_location_assignment PIN_175 -to usb_bus[2]
-set_location_assignment PIN_179 -to usb_bus[3]
-set_location_assignment PIN_181 -to usb_bus[4]
-set_location_assignment PIN_185 -to usb_bus[5]
-set_location_assignment PIN_188 -to usb_bus[6]
-set_location_assignment PIN_191 -to usb_bus[7]
-set_location_assignment PIN_193 -to usb_rd_
-set_location_assignment PIN_197 -to usb_wr
-set_location_assignment PIN_199 -to usb_txe_
-set_location_assignment PIN_201 -to usb_rxf_
+set_location_assignment PIN_11 -to usb_bus[0]
+set_location_assignment PIN_10 -to usb_bus[1]
+set_location_assignment PIN_8  -to usb_bus[2]
+set_location_assignment PIN_6  -to usb_bus[3]
+set_location_assignment PIN_5  -to usb_bus[4]
+set_location_assignment PIN_4  -to usb_bus[5]
+set_location_assignment PIN_3  -to usb_bus[6]
+set_location_assignment PIN_208 -to usb_bus[7]
+set_location_assignment PIN_15 -to usb_rd_
+set_location_assignment PIN_14 -to usb_wr
+set_location_assignment PIN_13 -to usb_txe_
+set_location_assignment PIN_12 -to usb_rxf_
 
 set_location_assignment PIN_34 -to status[0]
 set_location_assignment PIN_37 -to status[1]

@@ -42,6 +42,7 @@ reg rd_=1;
 reg wr =0;
 reg usbdir=0;
 reg reset_;
+reg run=1;
 
 // usbdata is high impedence unless usbdir is asserted
 assign usbdata=(usbdir)?usbout:8'bZ;
@@ -85,11 +86,21 @@ always @(negedge clk) begin
 		end
 		3: begin
 			rxbuf<=usbdata;
+			run<=~run; 
 			haverx<=1;
 			reset_<=0; // assert reset on receive, for now
 			rd_<=1;
 			delay<=4;
-			state<=0;
+			state<=4;
+		end
+		4: begin
+			// stay in reset until rxf_ comes high
+			if (rxf_) begin
+				if (run) reset_<=1;
+				state<=0;
+			end
+	
+			delay<=4;
 		end
 	endcase
 end
