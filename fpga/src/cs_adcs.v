@@ -47,7 +47,7 @@ input usb_rxf_;
 
 wire adc_reset_;
 wire adc_mclk;
-reg adc_m_s_=0;
+reg adc_m_s_=1;
 reg adc_mdiv=0;
 reg adc_hpf_=0;
 reg adc_lj_=0;
@@ -60,6 +60,7 @@ wire pll_locked;
 wire altclk;
 
 wire [7:0] usb_bus;
+wire usb_reset_;
 
 reg	pllena=1;
 reg pllreset=0;
@@ -69,7 +70,11 @@ wire adcstrobe;
 
 wire mclk;
 
+reg [31:0] poweron_reset_ctr=10000000; // 1 sec @ 10 mhz
+
 assign adc_mclk=mclk;
+assign adc_reset_=(!poweron_reset_ctr)&usb_reset_;
+//assign adc_reset_=(!poweron_reset_ctr); // for testing without ft245r
 
 cs5361 adc0 (
   .adcval(adcval),
@@ -83,7 +88,7 @@ cs5361 adc0 (
 ft245r_fifo usb0 (
   .rd_(usb_rd_),
   .wr(usb_wr),
-  .reset_(adc_reset_),
+  .reset_(usb_reset_),
   .usbdata(usb_bus),
   .txe_(usb_txe_),
   .rxf_(usb_rxf_),
@@ -101,5 +106,11 @@ thepll pll0 (
 	.locked(pll_locked)
 );
 
+// poweron reset controller
+always @(posedge mclk) begin
+	if (poweron_reset_ctr) poweron_reset_ctr=poweron_reset_ctr-1;
+	else status[0]=0;
+end
+		
 endmodule
 
