@@ -1,0 +1,19 @@
+                          |  |
+                          v  v
+    +----------------------------------------------+
+ -> | RST_              GND  V+                    |
+ -> | M/S_                                         |
+<-> | LRCK                                         |
+<-> | SCLK                                   AINR+ |
+ -> | MCLK                                   AINR- |
+<-  | SDOUT                                        |
+ -> | MDIV                                         |
+ -> | HPF_                                   AINL- |
+ -> | I2S/LJ_                                AINL+ |
+<-  | OVFL_*                                       |
+ -> | M0                                           |
+ -> | M1                                           |
+    +----------------------------------------------+
+
+* OVFL_ is open collector, but the breakout has a 10k pullup to V+
+- 3.3v logic is fine, but V+ must be 5v
