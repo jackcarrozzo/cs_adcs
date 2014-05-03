@@ -1,0 +1,48 @@
+Verilog and C to interface Cirrus Logic audio ADCs
+Jack Carrozzo <jack@crepinc.com>
+
+    +---------+       +--------------+       +----------+
+--> |L        |       |              |       |          |
+    |    adc  | <===> |  cyclone ii  | <===> |  ft245r  | --> USB 
+--> |R        |       |              |       |          |
+    +---------+       +--------------+       +----------+
+
+Current devices:            
+
+- CS5361: balanced two channel 192khz 24 bit (working)
+- CS5340: unbalanced two channel 192khz 24 bit (testing)
+
+Work in progress:
+
+- Allow ADCs, bit depth, and clock rates to be configured at runtime via USB 
+- Implement support for any number of ADCs
+- Add interface for CS
+- Single board design (replace pile of protoboards)
+- ADAT output stream and PHY support
+
+Manifest - see each dir's README for specific details
+
+- boards/         - Eagle layouts for various things
+- fpga/src/       - Verilog files
+- fpga/src/tests/ - Test benches and the sim devices they use
+- fpga/proj/      - Quartus project files, including pin config and Makefile
+- host/						- C code to control and test things
+
+At this point, all the code is quite bare-bones, in that only the specific 
+configuration of the device we use is handled (especially the ft245r). Do not
+assume that any modules handles all configs or exceptions.
+
+- Simulation: 
+
+		cd fpga/src/tests 
+		make && make show # uses iVerilog and GTKWave
+
+- Build: 
+
+		cd fpga/proj
+		vim cs_adcs.qsf   			# edit the pin config to match your setup
+		make
+		make prog								# make sure your JTAG cable is configured before this
+		screen /dev/ttyUSBn			# select your ft245r here 
+
+
