@@ -26,11 +26,11 @@ Manifest - see each dir's README for specific details
 - fpga/src/       - Verilog files
 - fpga/src/tests/ - Test benches and the sim devices they use
 - fpga/proj/      - Quartus project files, including pin config and Makefile
-- host/						- C code to control and test things
+- host/						- C utils to control and test things
 
 At this point, all the code is quite bare-bones, in that only the specific 
 configuration of the device we use is handled (especially the ft245r). Do not
-assume that any modules handles all configs or exceptions.
+assume that any modules handle all possible configs or exceptions.
 
 - Simulation: 
 
